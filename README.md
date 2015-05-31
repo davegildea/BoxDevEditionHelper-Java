@@ -5,6 +5,11 @@ To use in your own project, currently the best way is to copy the BoxDevEditionH
 
 ```maven
 	<dependency>
+	    <groupId>com.box</groupId>
+	    <artifactId>box-java-sdk</artifactId>
+	    <version>1.0.0</version>
+	</dependency>
+	<dependency>
 	    <groupId>org.bitbucket.b_c</groupId>
 	    <artifactId>jose4j</artifactId>
 	    <version>0.4.2</version>
