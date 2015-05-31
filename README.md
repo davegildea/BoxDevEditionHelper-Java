@@ -25,5 +25,7 @@ To use in your own project, currently the best way is to copy the BoxDevEditionH
 	    <version>1.4.5</version>
 	</dependency>
 ```
+###Important!
+Make sure you install the unrestricted encryption libraries for your JVM (if you don't you'll get an exception about key length):
 
-Have a look at the example client to see how to interact with the helper class.  If you have questions please email!
+http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html
