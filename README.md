@@ -4,16 +4,11 @@ In order to run the BoxDevEditionHelperClientExample make sure you copy the conf
 To use in your own project, currently the best way is to copy the BoxDevEditionHelper class into your project and make sure you include the following dependencies (Maven example):
 
 ```maven
-  <dependency>
-	    <groupId>com.box</groupId>
-	    <artifactId>box-java-sdk</artifactId>
-	    <version>1.0.0</version>
-	</dependency>
-	  <dependency>
+	<dependency>
 	    <groupId>org.bitbucket.b_c</groupId>
 	    <artifactId>jose4j</artifactId>
 	    <version>0.4.2</version>
-	  </dependency>
+	</dependency>
 	<dependency>
 		<groupId>org.bouncycastle</groupId>
 		<artifactId>bcprov-jdk15on</artifactId>
