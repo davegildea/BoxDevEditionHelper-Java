@@ -1,7 +1,7 @@
 ## Instructions
 In order to run the BoxDevEditionHelperClientExample make sure you copy the config.properties.example file to config.properties and change the properties to reflect your app's settings.
 
-To use in your own project, currently the best way is to copy the BoxDevEditionHelper class in to your project and make sure you include the following dependencies (Maven example):
+To use in your own project, currently the best way is to copy the BoxDevEditionHelper class into your project and make sure you include the following dependencies (Maven example):
 
 ```maven
   <dependency>
