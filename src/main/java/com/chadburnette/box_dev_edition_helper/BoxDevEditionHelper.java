@@ -5,6 +5,8 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.security.PrivateKey;
 
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.openssl.PEMDecryptorProvider;
 import org.bouncycastle.openssl.PEMEncryptedKeyPair;
@@ -29,6 +31,7 @@ public class BoxDevEditionHelper {
 
 	private static final String AUTH_URL = "https://api.box.com/oauth2/token";
 	private static final String USERS_URL = "https://api.box.com/2.0/users";
+	private static final String FILES_URL = "https://api.box.com/2.0/files";
 	private static final String JWT_GRANT_TYPE = "urn:ietf:params:oauth:grant-type:jwt-bearer";
 	
 	private String clientId;
@@ -83,6 +86,27 @@ public class BoxDevEditionHelper {
     			.header("accept", "application/json")
     			.field("force", force ? "true" : "false")
     			.asJson();
+    }
+    
+    public String downloadUrl(String fileId, String token) throws UnirestException{
+    	HttpClientBuilder clientBuilder = HttpClientBuilder.create();
+    	CloseableHttpClient client = clientBuilder.disableRedirectHandling().build();
+    	
+    	Unirest.setHttpClient(client);
+    	
+    	String url = FILES_URL + "/" + fileId + "/content";
+    	HttpResponse<String> response = Unirest.get(url)
+    			.header("Authorization", "Bearer " + token)
+    			.header("accept", "application/json")
+    			.asString();
+    	
+    	String downloadUrl = response.getHeaders().get("location").get(0);  
+    	
+    	clientBuilder = HttpClientBuilder.create();
+    	client = clientBuilder.build();
+    	Unirest.setHttpClient(client);
+    	
+    	return downloadUrl;
     }
     
     private HttpResponse<JsonNode> jwtAuthPost(String assertion) throws UnirestException {

@@ -43,6 +43,9 @@ public class BoxDevEditionHelperClientExample {
 	        	System.out.format("\t[%s] %s\n", itemInfo.getID(), itemInfo.getName());
 	        }
 	        
+	        String downloadUrl = boxHelper.downloadUrl("32112899081", adminToken);
+	        System.out.println("\nDownload URL: " + downloadUrl);
+	        
 	        String userId = boxHelper.createAppUser("test user", adminToken);
 	        System.out.println("\nCreated App User: " + userId);
 	        
