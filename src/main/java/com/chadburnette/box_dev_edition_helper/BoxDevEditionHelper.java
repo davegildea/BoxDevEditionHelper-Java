@@ -88,7 +88,7 @@ public class BoxDevEditionHelper {
     			.asJson();
     }
     
-    public String downloadUrl(String fileId, String token) throws UnirestException{
+    public static String downloadUrl(String fileId, String token) throws UnirestException{
     	HttpClientBuilder clientBuilder = HttpClientBuilder.create();
     	CloseableHttpClient client = clientBuilder.disableRedirectHandling().build();
     	
