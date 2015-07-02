@@ -31,6 +31,6 @@ To use in your own project, currently the best way is to copy the BoxDevEditionH
 	</dependency>
 ```
 ###Important!
-Make sure you install the unrestricted encryption libraries for your JVM (if you don't you'll get an exception about key length):
+Make sure you install the unrestricted encryption libraries for your JVM (if you don't you'll get an exception about key length).  This is not a Box thing, this is a U.S. Government requirement concerning strong encryption:
 
 http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html
