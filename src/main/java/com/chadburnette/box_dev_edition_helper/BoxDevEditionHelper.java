@@ -126,7 +126,7 @@ public class BoxDevEditionHelper {
     	JwtClaims claims = new JwtClaims();
     	claims.setIssuer(this.clientId);
     	claims.setAudience(AUTH_URL);
-    	claims.setExpirationTimeMinutesInTheFuture(1);
+    	claims.setExpirationTimeMinutesInTheFuture(0.2f);
     	claims.setSubject(sub);
     	claims.setClaim("box_sub_type", boxSubType);
     	claims.setGeneratedJwtId(64);
