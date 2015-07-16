@@ -1,6 +1,7 @@
 package com.chadburnette.box_dev_edition_helper;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Reader;
 import java.io.StringReader;
 import java.security.PrivateKey;
@@ -107,6 +108,21 @@ public class BoxDevEditionHelper {
     	Unirest.setHttpClient(client);
     	
     	return downloadUrl;
+    }
+    
+    public static InputStream thumbnail(String fileId, String token, int minHeight, int minWidth, int maxHeight, int maxWidth) throws UnirestException {
+
+        String url = FILES_URL + "/" + fileId + "/thumbnail.png";
+        HttpResponse<InputStream> response = Unirest.get(url)
+                .header("Authorization", "Bearer " + token)
+                .header("accept", "application/json")
+                .queryString("min_height", minHeight)
+                .queryString("min_width", minWidth)
+                .queryString("max_height", maxHeight)
+                .queryString("max_width", maxWidth)
+                .asBinary();
+
+        return response.getRawBody();
     }
     
     private HttpResponse<JsonNode> jwtAuthPost(String assertion) throws UnirestException {
